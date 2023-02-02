@@ -3,4 +3,5 @@
 1. 获取计划运行当前程序的设备的内网ip
 2. 修改app.js中第四行的HOST值
 3. 劫持域名aircat.phicomm.com到刚才的ip
-4. 启动程序npm run start
+4. 修改第六行，信息中心的url
+5. 启动程序npm run start
