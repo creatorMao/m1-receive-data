@@ -26,7 +26,6 @@ server.on("connection", (socket) => {
           // console.log(`原始数据：${dataItem}`);
           const parsedData = JSON.parse(patternRes[0])
           console.log(`处理后的数据：${JSON.stringify(parsedData)}`);
-
           axios({
             method: 'post',
             url: newsCenterUrl,
@@ -36,8 +35,12 @@ server.on("connection", (socket) => {
             }
           }).then((res) => {
             console.log(res.data);
+          }).catch(res => {
+            console.log('信息上传失败！');
+          }).finally(() => {
             console.log('--------------------');
           });
+
         }
       })
     }
