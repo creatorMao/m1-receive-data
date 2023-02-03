@@ -1,9 +1,9 @@
 import net from 'net';
 import axios from 'axios'
-
-const HOST = "192.168.1.201";
-const PORT = 9000;
-const newsCenterUrl = 'http://xxxx:3000/news/add?token=1'
+import config from './config.js'
+let { HOST, newsCenter } = config
+let { groupId, url } = newsCenter
+const PORT = 9000
 
 const server = net.createServer();
 server.listen(PORT, HOST);
@@ -28,9 +28,9 @@ server.on("connection", (socket) => {
           console.log(`处理后的数据：${JSON.stringify(parsedData)}`);
           axios({
             method: 'post',
-            url: newsCenterUrl,
+            url,
             params: {
-              groupId: 'm1',
+              groupId: groupId,
               content: JSON.stringify(parsedData)
             }
           }).then((res) => {
