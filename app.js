@@ -5,6 +5,10 @@ let { HOST, newsCenter } = config
 let { groupId, url } = newsCenter
 const PORT = 9000
 
+HOST = process.env['M1_RECEIVE_CODE_HOST'] || HOST
+groupId = process.env['M1_RECEIVE_CODE_NEWS_CENTER_GROUP_ID'] || groupId
+url = process.env['M1_RECEIVE_CODE_NEWS_CENTER_URL'] || url
+
 const server = net.createServer();
 server.listen(PORT, HOST);
 
