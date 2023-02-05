@@ -54,6 +54,10 @@ server.on("connection", (socket) => {
     console.log(`客户端${socket.remoteAddress}:${socket.remotePort}已断连`);
   });
 
+  socket.on('error', (err) => {
+    console.log(err);
+  });
+
 });
 
 console.log(`server listen on ${HOST}:${PORT}`);
